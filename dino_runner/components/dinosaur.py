@@ -6,6 +6,7 @@ from dino_runner.utils.constants import (
     JUMPING,
     DEFAULT_TYPE,
     SHIELD_TYPE,
+    HAMMER_TYPE,
     RUNNING_SHIELD,
     DUCKING_SHIELD,
     JUMPING_SHIELD
@@ -77,7 +78,7 @@ class Dinosaur(Sprite):
         self.step_index += 1
 
     def duck(self):
-        self.image = self.run_img[self.type][self.step_index // 5]
+        self.image = self.duck_img[self.type][self.step_index // 5]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.POS_X
         self.dino_rect.y = self.POS_Y_DUCKING
@@ -102,6 +103,12 @@ class Dinosaur(Sprite):
                 self.shield = False
                 self.update_to_default(SHIELD_TYPE)
 
+            if not time_to_show >= 0:
+                self.hammer = False
+                self.update_to_default(HAMMER_TYPE)
+
+
     def update_to_default(self, current_type):
         if self.type == current_type:
             self.type = DEFAULT_TYPE
+            

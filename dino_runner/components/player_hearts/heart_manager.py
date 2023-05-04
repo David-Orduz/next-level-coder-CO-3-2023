@@ -2,7 +2,7 @@ from dino_runner.components.player_hearts.heart import Heart
 
 class HeartManager:
     def __init__(self):
-        self.heart_count = 4
+        self.heart_count = 6
         
     def reduce_heart(self):
         self.heart_count -= 1
