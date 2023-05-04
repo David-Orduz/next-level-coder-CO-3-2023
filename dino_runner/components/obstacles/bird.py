@@ -14,7 +14,7 @@ class Bird(Obstacle):
         aux_x = self.rect.x
         aux_y = self.rect.y
 
-        self.rect =self.image[self.type].get_rect()
+        self.rect = self.image[self.type].get_rect()
         self.rect.x = aux_x
         self.rect.y = aux_y
         self.step_index += 1
